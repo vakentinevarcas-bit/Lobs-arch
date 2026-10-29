@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Archive - Admin Login</title>
+    <style>
+        /* --- CSS VARIABLES BASED ON SCREENSHOT --- */
+        :root {
+            --primary-green: #00b56a; /* The main green button color */
+            --primary-green-hover: #00995a;
+            --light-green-bg: #e6f9f0; /* The dashboard active state background */
+            --text-dark: #333333;
+            --text-gray: #6c757d;
+            --bg-body: #f4f7f6;
+            --white: #ffffff;
+            --input-border: #e1e5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Subtle pattern to mimic the dashboard background if desired */
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* --- LOGIN CARD CONTAINER --- */
+        .login-container {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Soft shadow */
+            text-align: center;
+        }
+
+        /* --- LOGO AREA --- */
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            /* Simulating the cloud icon from the screenshot */
+            font-size: 40px;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* --- FORM HEADER --- */
+        h2 {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* --- INPUT FIELDS --- */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px; /* Rounded corners like the dashboard widgets */
+            font-size: 14px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: #fbfcfd;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px var(--light-green-bg);
+        }
+
+        input::placeholder {
+            color: #adb5bd;
+        }
+
+        /* --- REMEMBER ME & FORGOT PASSWORD --- */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            color: var(--text-gray);
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            width: auto;
+            margin-right: 8px;
+            accent-color: var(--primary-green);
+        }
+
+        .forgot-password {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* --- BUTTON --- */
+        .btn-login  {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 6px; /* Slightly rectangular like "Create Document" button */
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+			text-decoration: none;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-green-hover);
+        }
+
+        /* --- FOOTER --- */
+        .footer-text {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Logo Section -->
+        <div class="logo-area">
+            <!-- Using an SVG for the cloud/document icon -->
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+                <path d="M6.5 19C4.567 19 3 17.433 3 15.5C3 13.567 4.567 12 6.5 12C6.65719 12 6.81228 12.0103 6.96446 12.0304C7.49938 9.73424 9.5434 8 12 8C14.7614 8 17 10.2386 17 13C17 13.2761 16.7761 13.5 16.5 13.5H7.5C6.67157 13.5 6 14.1716 6 15V16.5C6 17.3284 6.67157 18 7.5 18H17.5C18.3284 18 19 17.3284 19 16.5V13C19 10.5147 17.4853 8 15 8H14.5" stroke="#00b56a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12V15H13V12" stroke="#00b56a" stroke-width="2"/>
+                <rect x="8" y="15" width="10" height="4" rx="1" fill="#00b56a" fill-opacity="0.2"/>
+            </svg>
+            <div class="logo-text">
+                Lobs<br><span>Archs</span>
+            </div>
+        </div>
+
+        <h2>Admin Login</h2>
+
+        <form>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="admin@archive.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-login"><a href="dashboard.html " class="btn-login">Sign In</a></button>
+        </form>
+
+        <div class="footer-text">
+            &copy; 2024 Document Archive System.
+        </div>
+    </div>
+
+</body>
+</html>
